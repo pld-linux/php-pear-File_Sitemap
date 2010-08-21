@@ -7,7 +7,7 @@ Summary:	%{_pearname} - create and manage sitemap files
 Summary(pl.UTF-8):	%{_pearname} - tworzenie i zarządzanie plikami z "mapą strony"
 Name:		php-pear-%{_pearname}
 Version:	0.1.3
-Release:	1
+Release:	2
 License:	BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -15,7 +15,10 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 URL:		http://pear.php.net/package/File_Sitemap/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+Requires:	php-dom
 Requires:	php-pear
+Requires:	php-zlib
+Suggests:	php-pear-HTTP_Request
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
