@@ -1,21 +1,19 @@
+%define		status		alpha
+%define		pearname	File_Sitemap
 %include	/usr/lib/rpm/macros.php
-%define		_class		File
-%define		_subclass	Sitemap
-%define		_status		alpha
-%define		_pearname	File_Sitemap
-Summary:	%{_pearname} - create and manage sitemap files
-Summary(pl.UTF-8):	%{_pearname} - tworzenie i zarządzanie plikami z "mapą strony"
-Name:		php-pear-%{_pearname}
-Version:	0.1.3
-Release:	3
+Summary:	%{pearname} - create and manage sitemap files
+Summary(pl.UTF-8):	%{pearname} - tworzenie i zarządzanie plikami z "mapą strony"
+Name:		php-pear-%{pearname}
+Version:	0.1.4
+Release:	1
 License:	BSD License
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	3bed2666446710966cda547d5140aad0
+Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
+# Source0-md5:	aa8032c0e89bd26a963967f2c814b068
 URL:		http://pear.php.net/package/File_Sitemap/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php-dom
 Requires:	php-pear
 Requires:	php-zlib
@@ -25,7 +23,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(HTTP/Request.*)'
+%define		_noautoreq	pear(HTTP/Request.*)
 
 %description
 This package allow to create sitemap files used to describe your
@@ -34,7 +32,7 @@ needed functions to create, read, save, add, modify and remove url,
 compress to gzip, notify search engine and test url in the sitemap or
 sitemap index.
 
-In PEAR status of this package is: %{_status}.
+In PEAR status of this package is: %{status}.
 
 %description -l pl.UTF-8
 Pakiet ten pozwala na tworzenie plików z mapą strony wykorzystywanych
@@ -44,10 +42,12 @@ tworzenia, odczytu, zapisu, dodawania, modyfikacji oraz usuwania
 adresów, kompresji do formatu gzip, informowania wyszukiwark jak
 również do testowania adresów.
 
-Ta klasa ma w PEAR status: %{_status}.
+Ta klasa ma w PEAR status: %{status}.
 
 %prep
 %pear_package_setup
+
+mv .%{php_pear_dir}/data/File_Sitemap/README .
 
 %install
 rm -rf $RPM_BUILD_ROOT
