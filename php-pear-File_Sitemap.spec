@@ -1,6 +1,5 @@
 %define		status		alpha
 %define		pearname	File_Sitemap
-%include	/usr/lib/rpm/macros.php
 Summary:	%{pearname} - create and manage sitemap files
 Summary(pl.UTF-8):	%{pearname} - tworzenie i zarządzanie plikami z "mapą strony"
 Name:		php-pear-%{pearname}
